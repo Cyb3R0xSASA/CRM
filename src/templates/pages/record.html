@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Record Details</h4>
+        </div>
+        <div class="card-body">
+            <p><strong>ID:</strong> {{ record.id }}</p>
+            <p><strong>Name:</strong> {{ record.first_name }} {{ record.last_name }}</p>
+            <p><strong>Category:</strong> {{ record.category }}</p>
+            <p><strong>Phone:</strong> {{ record.phone }}</p>
+            <p><strong>Height:</strong> {{ record.tall }}</p>
+            <p><strong>Weight:</strong> {{ record.weight }}</p>
+            <p><strong>Date:</strong> {{ record.create_date }}</p>
+        </div>
+        <div class="card-footer text-right">
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Records</a>
+            <a href="{% url 'record_edit' record.id %}" class="btn btn-primary ml-2">Edit</a>
+            <a href="{% url 'delete_record' record.id %}" class="btn btn-danger ml-2">Delete</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
